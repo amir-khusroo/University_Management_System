@@ -9,13 +9,9 @@ import java.util.UUID;
 public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
-
-    private String code;
+    private Long id;
 
     private String name;
-
-    private String description;
 
     @OneToOne(mappedBy = "department",  cascade = CascadeType.ALL)
     private List<Faculty> faculties;

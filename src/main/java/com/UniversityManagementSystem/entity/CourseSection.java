@@ -6,19 +6,17 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-public class Course {
+public class CourseSection {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String code;
-
-    private String title;
+    private Semester semester;
 
     @ManyToOne
-    private Department department;
+    private Course course;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-    List<CourseSection> courseSectionList;
+    @OneToMany(mappedBy = "courseSection", cascade = CascadeType.ALL)
+    private List<Subject> subjectList;
 
 }

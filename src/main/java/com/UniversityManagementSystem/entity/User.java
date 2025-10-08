@@ -1,5 +1,6 @@
 package com.UniversityManagementSystem.entity;
 
+import com.UniversityManagementSystem.enums.Role;
 import jakarta.persistence.*;
 
 import java.util.UUID;
@@ -9,7 +10,7 @@ import java.util.UUID;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private Long id;
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -17,7 +18,7 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column(unique = true,nullable = false)
-    private String email;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
 }
