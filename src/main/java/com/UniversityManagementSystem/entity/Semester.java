@@ -15,6 +15,7 @@ public class Semester {
 
     private int semesterNo;
 
+    @ManyToOne
     private Course course;
 
     @OneToMany(mappedBy = "semester", cascade = CascadeType.ALL)

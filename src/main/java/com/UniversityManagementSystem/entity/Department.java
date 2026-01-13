@@ -13,7 +13,7 @@ public class Department {
 
     private String name;
 
-    @OneToOne(mappedBy = "department",  cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "department",  cascade = CascadeType.ALL)
     private List<Faculty> faculties;
 
     @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
