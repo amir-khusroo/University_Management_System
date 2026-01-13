@@ -20,12 +20,5 @@ public class Subject {
     @ManyToOne
     private Semester semester;
 
-    @ManyToOne
-    private CourseSection courseSection;
 
-    @ManyToOne
-    private Faculty faculty;
-
-    @ManyToMany(mappedBy = "subjects")
-    private List<Student> students;
 }

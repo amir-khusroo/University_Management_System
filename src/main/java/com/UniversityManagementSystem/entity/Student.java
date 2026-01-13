@@ -29,19 +29,7 @@ public class Student {
     @ManyToOne
     private Course course;
 
-    @ManyToOne
-    private CourseSection courseSection;
-
     @ManyToMany
-    @JoinTable(
-            name = "subject_enrollments", // join table
-            joinColumns = @JoinColumn(name = "student_id"),
-            inverseJoinColumns = @JoinColumn(name = "subject_id")
-    )
-    private List<Subject> subjects;
-
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-    private List<Attendence> attendenceList;
-
+    private List<Semester> semesters;
 
 }

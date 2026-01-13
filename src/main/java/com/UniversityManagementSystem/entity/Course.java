@@ -11,14 +11,14 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String code;
-
     private String title;
+
+    private String code;
 
     @ManyToOne
     private Department department;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
-    List<CourseSection> courseSectionList;
+    List<Semester> semesters;
 
 }

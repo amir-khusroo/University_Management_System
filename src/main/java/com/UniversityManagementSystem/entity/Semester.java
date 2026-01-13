@@ -1,11 +1,9 @@
 package com.UniversityManagementSystem.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Semester {
@@ -13,7 +11,17 @@ public class Semester {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String name;
+    private String title;
+
+    private int semesterNo;
+
+    private Course course;
+
+    @OneToMany(mappedBy = "semester", cascade = CascadeType.ALL)
+    private List<Subject> subjects;
+
+    @ManyToMany(mappedBy = "semesters", cascade = CascadeType.ALL)
+    private List<Student> students;
 
     private LocalDate startDate;
     private LocalDate endDate;

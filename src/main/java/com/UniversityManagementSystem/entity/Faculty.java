@@ -22,7 +22,8 @@ public class Faculty {
     @ManyToOne
     private Department department;
 
-    @OneToMany(mappedBy = "faculty" , cascade = CascadeType.ALL)
-    private Subject subject;
+//
+//    @ManyToMany(mappedBy = "faculty" , cascade = CascadeType.ALL)
+//    private Subject subject;
 
 }
