@@ -1,10 +1,11 @@
 package com.UniversityManagementSystem.entity;
 
 import jakarta.persistence.*;
-
+import lombok.Data;
 
 
 @Entity
+@Data
 public class Faculty {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,8 +22,6 @@ public class Faculty {
     @ManyToOne
     private Department department;
 
-//
-//    @ManyToMany(mappedBy = "faculty" , cascade = CascadeType.ALL)
-//    private Subject subject;
+
 
 }

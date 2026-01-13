@@ -1,11 +1,13 @@
 package com.UniversityManagementSystem.entity;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Entity
+@Data
 public class Semester {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,7 +23,7 @@ public class Semester {
     @OneToMany(mappedBy = "semester", cascade = CascadeType.ALL)
     private List<Subject> subjects;
 
-    @ManyToMany(mappedBy = "semesters", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "semesters")
     private List<Student> students;
 
     private LocalDate startDate;
