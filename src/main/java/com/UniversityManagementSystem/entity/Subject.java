@@ -11,7 +11,7 @@ public class Subject {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String  code;
+    private String code;
 
     private String name;
 
