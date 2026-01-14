@@ -25,8 +25,6 @@ public class Student {
 
     private String rollno;
 
-    private String courseName;
-
     @ManyToOne
     private Department department;
 
