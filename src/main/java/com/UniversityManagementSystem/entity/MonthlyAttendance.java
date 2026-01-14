@@ -10,6 +10,7 @@ public class MonthlyAttendance {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+
     private int month;
 
     private int year;
