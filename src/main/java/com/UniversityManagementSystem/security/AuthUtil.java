@@ -1,5 +1,6 @@
 package com.UniversityManagementSystem.security;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -21,5 +22,14 @@ public class AuthUtil {
                 .setExpiration(new Date(System.currentTimeMillis()+1000*60*60*18))
                 .signWith(Keys.hmacShaKeyFor(jwtSecretKey.getBytes(StandardCharsets.UTF_8)))
                 .compact();
+    }
+
+    public String getUsernameFromToken(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(Keys.hmacShaKeyFor(jwtSecretKey.getBytes(StandardCharsets.UTF_8)))
+                .build()
+                .parseClaimsJwt(token)
+                .getBody()
+                .getSubject();
     }
 }
