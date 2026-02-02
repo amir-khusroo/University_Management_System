@@ -19,7 +19,7 @@ public class AuthUtil {
                 .setSubject(userDetails.getUsername())
                 .claim("role",userDetails.getAuthorities().iterator().next().getAuthority())
                 .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis()+1000*60*60*18))
+                .setExpiration(new Date(System.currentTimeMillis()+1000*60))
                 .signWith(Keys.hmacShaKeyFor(jwtSecretKey.getBytes(StandardCharsets.UTF_8)))
                 .compact();
     }
@@ -28,7 +28,7 @@ public class AuthUtil {
         return Jwts.parserBuilder()
                 .setSigningKey(Keys.hmacShaKeyFor(jwtSecretKey.getBytes(StandardCharsets.UTF_8)))
                 .build()
-                .parseClaimsJwt(token)
+                .parseClaimsJws(token)
                 .getBody()
                 .getSubject();
     }
